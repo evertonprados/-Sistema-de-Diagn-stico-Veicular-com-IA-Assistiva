@@ -1,0 +1,469 @@
+Crie um sistema completo de diagnóstico veicular para tablets de oficina mecânica 
+com as seguintes especificações:
+
+═══════════════════════════════════════════════════════════════════════════════
+ESTRUTURA GERAL
+═══════════════════════════════════════════════════════════════════════════════
+
+Desenvolva uma aplicação web responsiva em React com Tailwind CSS otimizada 
+para tablets, contendo 5 telas principais:
+
+1. Login de Mecânicos
+2. Cadastro de Veículo e Proprietário
+3. Inspeção Técnica Interativa
+4. Modal de Diagnóstico por Parte
+5. Geração de Relatórios
+
+
+═══════════════════════════════════════════════════════════════════════════════
+TELA 1: LOGIN DE MECÂNICOS
+═══════════════════════════════════════════════════════════════════════════════
+
+- Sistema de autenticação com 4 perfis de mecânicos
+- Cada mecânico deve ter: nome completo e código de identificação
+- Interface visual com cards clicáveis
+- Design moderno com gradientes azuis
+
+
+═══════════════════════════════════════════════════════════════════════════════
+TELA 2: CADASTRO DE VEÍCULO
+═══════════════════════════════════════════════════════════════════════════════
+
+DADOS DO PROPRIETÁRIO:
+- Nome completo (obrigatório)
+- Telefone (obrigatório)
+- E-mail (opcional)
+
+DADOS DO VEÍCULO:
+- Placa (obrigatório, uppercase, formato ABC-1234)
+- Marca (obrigatório)
+- Modelo (obrigatório)
+- Ano (obrigatório, 4 dígitos)
+- Cor
+- Quilometragem (obrigatório)
+
+DADOS ADICIONAIS:
+- Número de Ordem de Serviço: gerado automaticamente no formato "OS-XXXXXXXX"
+- Nível de Combustível: 5 botões visuais (Vazio, 1/4, 1/2, 3/4, Cheio)
+- Observações do Proprietário: campo de texto grande para reclamações/problemas 
+  relatados pelo cliente
+
+VALIDAÇÃO:
+- Só permite avançar se todos os campos obrigatórios estiverem preenchidos
+- Botão "Iniciar Inspeção" desabilitado até validação completa
+
+
+═══════════════════════════════════════════════════════════════════════════════
+TELA 3: INSPEÇÃO INTERATIVA
+═══════════════════════════════════════════════════════════════════════════════
+
+DASHBOARD DE PROGRESSO (topo da tela):
+Exibir 5 cards com estatísticas em tempo real:
+1. Inspecionados/Total (azul)
+2. Itens OK (verde)
+3. Itens com Atenção (amarelo)
+4. Itens Urgentes (vermelho)
+5. Pendentes (cinza)
+
+Incluir barra de progresso visual mostrando percentual de conclusão
+
+DESENHO DO VEÍCULO:
+- Criar ilustração PROFISSIONAL de um sedan em vista lateral usando SVG
+- Características obrigatórias do desenho:
+  * Carroceria com gradientes (efeito 3D)
+  * Rodas detalhadas com raios
+  * Vidros com transparência
+  * Faróis e lanternas iluminados
+  * Espelhos retrovisores
+  * Maçanetas das portas
+  * Para-choques
+  * Grade frontal
+  * Sombra embaixo do carro
+  * Divisórias entre portas
+
+PONTOS DE INSPEÇÃO:
+Criar 10 pontos interativos clicáveis no desenho do carro, posicionados nas 
+partes correspondentes:
+
+1. ⚠️ Luzes de Advertência (painel/interior)
+2. 🚗 Lataria/Pintura (carroceria)
+3. 📦 Itens Pessoais (interior)
+4. 🔧 Motor e Fluidos (motor)
+5. 🛑 Sistema de Freios (rodas/freios)
+6. 🔩 Suspensão/Direção (chassis)
+7. ⚫ Pneus e Rodas (rodas)
+8. ⚡ Sistema Elétrico (motor)
+9. 🔺 Equipamentos Obrigatórios (geral)
+10. 📋 Outros (geral)
+
+INDICADORES VISUAIS DOS PONTOS:
+- Pendente: círculo cinza com "?"
+- OK: círculo verde com "✓"
+- Atenção: círculo amarelo com "!"
+- Urgente: círculo vermelho com "⚠"
+
+LEGENDA:
+Exibir abaixo do desenho uma legenda explicativa com as 4 cores e seus significados
+
+VALIDAÇÃO:
+- Bloquear finalização até que TODAS as 10 partes sejam inspecionadas
+- Botão "Finalizar e Gerar Relatórios" desabilitado até 100% de conclusão
+- Exibir contador de partes faltantes
+
+
+═══════════════════════════════════════════════════════════════════════════════
+TELA 4: MODAL DE DIAGNÓSTICO (POR PARTE)
+═══════════════════════════════════════════════════════════════════════════════
+
+Ao clicar em cada ponto de inspeção, abrir modal full-screen com:
+
+SEÇÃO 1 - STATUS (botões grandes):
+- "Tudo OK" (verde)
+- "Com Problemas" (laranja)
+
+SEÇÃO 2 - SE "COM PROBLEMAS", EXIBIR:
+
+A) PRIORIDADE (3 botões):
+   - Normal (azul)
+   - Atenção (amarelo)
+   - Urgente (vermelho)
+
+B) CHECKLIST DE PROBLEMAS ESPECÍFICOS:
+   
+   1. LUZES DE ADVERTÊNCIA:
+      - Luz do Acumulador acesa
+      - Luz da Injeção acesa
+      - Luz do Óleo acesa
+      - Outra luz de advertência
+   
+   2. LATARIA/PINTURA:
+      - Amassados porta dianteira
+      - Amassados porta traseira
+      - Arranhões para-choque
+      - Ferrugem visível
+      - Pintura desbotada
+      - Trinca no para-brisa
+   
+   3. ITENS PESSOAIS:
+      - Óculos de sol
+      - Carregador celular
+      - Documentos pessoais
+      - Objetos de valor
+      - Acessórios diversos
+   
+   4. MOTOR E FLUIDOS:
+      - Óleo do motor sujo/escuro
+      - Nível de óleo baixo
+      - Filtro de óleo saturado
+      - Filtro de ar sujo
+      - Filtro de combustível
+      - Fluido arrefecimento baixo
+      - Aditivo radiador vencido
+      - Vazamento óleo motor
+      - Vazamento óleo câmbio
+      - Vazamento fluido direção
+      - Correia dentada desgastada
+      - Correia alternador frouxa
+      - Tensores com problema
+   
+   5. SISTEMA DE FREIOS:
+      - Fluido de freio baixo
+      - Fluido contaminado
+      - Pastilhas dianteiras finas
+      - Pastilhas traseiras finas
+      - Discos dianteiros riscados
+      - Discos empenados
+      - Discos traseiros desgastados
+      - Lonas traseiras gastas
+      - Tambores com sulcos
+      - Freio de mão desregulado
+      - Freio não segura
+   
+   6. SUSPENSÃO/DIREÇÃO:
+      - Amortecedor dianteiro vazando
+      - Amortecedor traseiro vazando
+      - Amortecedor com folga
+      - Molas quebradas
+      - Batentes danificados
+      - Pivô com folga
+      - Terminal direção folga
+      - Buchas desgastadas
+      - Coifa homocinética rasgada
+      - Coifa vazando graxa
+   
+   7. PNEUS E RODAS:
+      - Desgaste irregular
+      - TWI visível
+      - Bolhas laterais
+      - Cortes profundos
+      - Calibragem incorreta
+      - Estepe sem condições
+      - Necessita balanceamento
+      - Necessita alinhamento
+      - Necessita rodízio
+   
+   8. SISTEMA ELÉTRICO:
+      - Bateria fraca
+      - Terminais sujos/oxidados
+      - Alternador não carrega
+      - Tensão carga incorreta
+      - Velas de ignição gastas
+      - Cabos ignição rachados
+      - Faróis queimados
+      - Lanternas queimadas
+      - Setas não funcionam
+      - Luz painel apagada
+      - Luz teto não funciona
+   
+   9. EQUIPAMENTOS OBRIGATÓRIOS:
+      - Limpador não funciona
+      - Esguicho entupido
+      - Buzina não funciona
+      - Triângulo ausente
+      - Macaco ausente
+      - Chave de roda ausente
+      - Estepe ausente
+      - Cinto dianteiro travado
+      - Cinto traseiro com problema
+      - Fivela não trava
+   
+   10. OUTROS:
+       - Escapamento solto
+       - Escapamento vazando
+       - Palhetas ressecadas
+       - Palhetas riscando
+       - Ar condicionado não gela
+       - Ar com mau cheiro
+       - Compressor não liga
+
+C) CAMPO DE OBSERVAÇÕES:
+   - Textarea para detalhes técnicos, medições e anotações específicas
+
+D) RECURSOS MULTIMÍDIA:
+   
+   FOTOS:
+   - Botão "📷 Tirar Foto" com acesso à câmera do dispositivo
+   - Permitir múltiplas fotos por parte
+   - Exibir preview em grid (3 colunas)
+   - Botão "X" para remover foto individual (aparecer no hover)
+   - Contador de fotos anexadas
+   
+   ÁUDIO:
+   - Botão "🎤 Gravar Áudio"
+   - Gravação usando MediaRecorder API
+   - Botão pulsante vermelho durante gravação ("⏹️ Parar Gravação")
+   - Indicador visual de áudio gravado ("🎵 Áudio gravado")
+   - Botão para deletar e regravar
+   - Um áudio por parte
+
+BOTÕES DE AÇÃO:
+- "Cancelar" (cinza, volta sem salvar)
+- "✓ Finalizar Inspeção" (verde, salva e fecha modal)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+TELA 5: RELATÓRIOS FINAIS
+═══════════════════════════════════════════════════════════════════════════════
+
+Exibir 2 cards com documentos para download:
+
+DOCUMENTO 1 - RELATÓRIO DE DIAGNÓSTICO (para o cliente):
+
+Formato: arquivo .txt
+Nome: Diagnostico_[OS]_[PLACA].txt
+
+Estrutura:
+═══════════════════════════════════════════════════════
+RELATÓRIO DE DIAGNÓSTICO TÉCNICO
+═══════════════════════════════════════════════════════
+ORDEM DE SERVIÇO: [OS automática]
+DADOS DO CLIENTE:
+Nome: [nome]
+Telefone: [telefone]
+Email: [email ou "Não informado"]
+DADOS DO VEÍCULO:
+Placa: [placa]
+Modelo: [marca] [modelo]
+Ano: [ano]
+Cor: [cor]
+Quilometragem: [km] km
+Nível de Combustível: [nivel]
+Data da Entrada: [data]
+Data do Diagnóstico: [data/hora]
+Mecânico Responsável: [nome] (Cód: [código])
+[SE HOUVER]
+OBSERVAÇÕES DO PROPRIETÁRIO:
+[observações relatadas]
+═══════════════════════════════════════════════════════
+[SE HOUVER ITENS URGENTES]
+⚠️  PROBLEMAS URGENTES - ATENÇÃO IMEDIATA
+═══════════════════════════════════════════════════════
+
+[NOME DA PARTE]
+──────────────────────────────────────────────
+Problemas:
+▸ [problema 1]
+▸ [problema 2]
+
+Observações: [observações técnicas]
+📷 [X] foto(s) anexada(s)
+🎤 Áudio anexado
+[SE HOUVER ITENS NORMAIS]
+📋 MANUTENÇÃO RECOMENDADA
+═══════════════════════════════════════════════════════
+[mesmo formato dos urgentes]
+[SE HOUVER ITENS OK]
+✓ ITENS VERIFICADOS SEM PROBLEMAS
+═══════════════════════════════════════════════════════
+✓ [parte 1]
+✓ [parte 2]
+═══════════════════════════════════════════════════════
+CONCLUSÃO E RECOMENDAÇÕES
+═══════════════════════════════════════════════════════
+[Texto automático baseado nos problemas encontrados]
+OBS: Fotos e áudios foram anexados digitalmente.
+Solicite acesso ao mecânico para visualizar.
+Atenciosamente,
+[Nome do Mecânico]
+Cód: [código]
+
+DOCUMENTO 2 - LISTA DE SERVIÇOS E PEÇAS (uso interno/fornecedor):
+
+Formato: arquivo .txt
+Nome: Pecas_[OS]_[PLACA].txt
+
+Estrutura:
+═══════════════════════════════════════════════════════
+LISTA DE SERVIÇOS E PEÇAS
+═══════════════════════════════════════════════════════
+OS: [número]
+Veículo: [marca] [modelo] - [placa]
+Cliente: [nome]
+Data: [data]
+═══════════════════════════════════════════════════════
+SERVIÇOS E PEÇAS POR SISTEMA
+═══════════════════════════════════════════════════════
+
+[NOME DA PARTE] [⚠️ URGENTE se aplicável]
+──────────────────────────────────────────────
+Problemas:
+• [problema 1]
+• [problema 2]
+
+Obs: [observações]
+Peças necessárias:
+[ ] _________________
+[ ] _________________
+[ ] _________________
+═══════════════════════════════════════════════════════
+TOTAL DE SISTEMAS COM PROBLEMAS: [X]
+⚠️  ITENS URGENTES: [X]
+═══════════════════════════════════════════════════════
+Observações:
+
+Preencher as peças necessárias para cada sistema
+Verificar disponibilidade no estoque
+Aguardar aprovação do cliente
+Calcular mão de obra e elaborar orçamento final
+
+──────────────────────────────────────────────
+Responsável: _________________ Data: //___
+
+AÇÕES:
+- Botão "📥 Baixar Relatório (.txt)" - card azul
+- Botão "📥 Baixar Lista (.txt)" - card laranja
+- Botão "← Voltar" - permite revisar inspeção
+- Botão "Nova Inspeção →" - reinicia sistema com nova OS
+
+
+═══════════════════════════════════════════════════════════════════════════════
+REQUISITOS TÉCNICOS
+═══════════════════════════════════════════════════════════════════════════════
+
+TECNOLOGIAS:
+- React 18+ (Hooks: useState)
+- Tailwind CSS (classes utilitárias)
+- Lucide React (ícones)
+- SVG para desenho do veículo
+- MediaRecorder API para áudio
+- FileReader API para fotos
+
+RESPONSIVIDADE:
+- Otimizado para tablets (768px - 1024px)
+- Layout adaptável
+- Botões grandes (mínimo 44px)
+- Textos legíveis (mínimo 14px)
+
+ARMAZENAMENTO:
+- Dados mantidos em memória durante sessão (useState)
+- NUNCA usar localStorage ou sessionStorage
+- Fotos: URL.createObjectURL
+- Áudio: Blob em memória
+
+VALIDAÇÕES:
+- Campos obrigatórios destacados
+- Botões desabilitados até validação
+- Feedback visual de erros
+- Impossível pular etapas
+
+DESIGN:
+- Paleta: azul primário, verde (OK), amarelo (atenção), vermelho (urgente)
+- Gradientes em headers
+- Sombras em cards
+- Bordas arredondadas
+- Animações suaves (transitions)
+- Hover effects
+
+
+═══════════════════════════════════════════════════════════════════════════════
+COMPORTAMENTOS ESPECIAIS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Geração automática de OS ao criar nova inspeção
+2. Bloqueio de finalização até 100% de cobertura
+3. Atualização em tempo real do dashboard de progresso
+4. Preview de fotos com grid responsivo
+5. Indicador visual durante gravação de áudio
+6. Download de documentos via Blob
+7. Confirmação antes de sair sem salvar
+8. Reset completo ao iniciar nova inspeção
+
+
+═══════════════════════════════════════════════════════════════════════════════
+DIFERENCIAIS OBRIGATÓRIOS
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Interface 100% visual e intuitiva
+✅ Impossível esquecer de inspecionar alguma parte
+✅ Documentação multimídia (fotos + áudio)
+✅ Relatórios profissionais automáticos
+✅ Zero configuração de preços (foco no diagnóstico)
+✅ Rastreamento por mecânico e OS
+✅ Pronto para compartilhamento (WhatsApp, email, impressão)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ESTRUTURA DE CÓDIGO
+═══════════════════════════════════════════════════════════════════════════════
+
+Componentes principais:
+- VehicleDiagnosticSystem (componente raiz)
+- LoginScreen
+- VehicleDataScreen
+- InspectionScreen
+- DiagnosticModal
+- ReportsScreen
+
+Estados principais:
+- currentScreen (controle de navegação)
+- mechanic (mecânico logado)
+- vehicleData (dados do veículo e proprietário)
+- diagnostics (objeto com diagnósticos por parte)
+- selectedPart (parte sendo inspecionada)
+
+Funções auxiliares:
+- getPartStatus() - retorna status visual de cada parte
+- getProgressStats() - calcula estatísticas do dashboard
+- generateBudgetText() - gera texto do relatório
+- generatePartsListText() - gera texto da lista de peças
+- downloadDocument() - cria e baixa arquivo .txt
