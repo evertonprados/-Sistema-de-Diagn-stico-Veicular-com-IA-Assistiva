@@ -1,0 +1,29 @@
+src/
+├── components/           # Componentes reutilizáveis
+│   ├── common/          # Componentes genéricos
+│   │   ├── Button.jsx
+│   │   └── Card.jsx
+│   ├── login/           # Tela de login
+│   │   └── LoginScreen.jsx
+│   ├── vehicle/         # Tela de dados do veículo
+│   │   ├── VehicleDataScreen.jsx
+│   │   └── FuelSelector.jsx
+│   ├── inspection/      # Tela de inspeção
+│   │   ├── InspectionScreen.jsx
+│   │   ├── ProgressDashboard.jsx
+│   │   ├── VehicleDrawing.jsx
+│   │   └── DiagnosticModal.jsx
+│   └── reports/         # Tela de relatórios
+│       └── ReportsScreen.jsx
+├── data/                # Dados estáticos
+│   ├── mechanics.js
+│   └── vehicleParts.js
+├── hooks/               # Custom hooks
+│   └── useVehicleDiagnostic.js
+├── utils/               # Funções utilitárias
+│   ├── reportGenerator.js
+│   └── fileDownloader.js
+├── constants/           # Constantes
+│   └── colors.js
+├── App.jsx             # Componente principal
+└── index.css           # Estilos globais
